@@ -1,15 +1,35 @@
 public class Bike {
+
      private String bikeModel;
      private String noPlate;
-     private String bikeColor;
+     public String getBikeModel() {
+      return bikeModel;
+   }
+
+   public String getNoPlate() {
+      return noPlate;
+   }
+   private  String bikeColor;
      private boolean isBikeStarted;
      private int speed=0;
 
      public Bike(String bikeModel , String noPlate , String bikeColor){
-        this.bikeColor=bikeModel;
+        this.bikeModel=bikeModel;
         this.noPlate=noPlate;
         this.bikeColor=bikeColor;
      }
+
+     public  void setBikeColor(String bcolor){
+      if( bcolor.equals("RED") || bcolor.equals("WHITE")){
+         this.bikeColor= bcolor;
+      }else{
+      this.bikeColor="BLUE";
+      }
+   }
+    
+   public String getBikeColor(){
+      return bikeColor;
+   }
     
      void bikeIgnitionOn(){
       isBikeStarted=true;
