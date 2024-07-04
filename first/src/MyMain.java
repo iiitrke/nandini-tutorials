@@ -16,17 +16,20 @@ public class MyMain {
         Bike honda9 = new Bike("Honda", "UK8", "Red");
         Bike honda5 = new Bike("Honda", "UK7", "Red");
          
+        Bike mybike = new Bike("Honda", "UK7", "Red");
+        Bike bikemybike = new Bike("Honda", "UK7", "Red");
         
-        honda.setBikeColor("RED");
+        
+       // honda.setBikeColor("RED");
         honda.showBikeDetail();
 
         // police.challan(honda);
         // police.challan(honda11);
-        String bikeColor = honda13.getBikeColor();
-        String bikeNo = honda.getNoPlate();
+        //String bikeColor = honda13.getBikeColor();
+        //String bikeNo = honda.getNoPlate();
 
-        police.challan(bikeColor, bikeNo);
-        System.out.println("My Bike color is "+ bikeColor);
+        //police.challan(bikeColor, bikeNo);
+        //System.out.println("My Bike color is "+ bikeColor);
 
 
     }
