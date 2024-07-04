@@ -2,9 +2,27 @@ public class Bike {
 
      private String bikeModel;
      private String noPlate;
+     private BikeColor bikeColorObj;
+   
+     public Bike(String bikeModel , String noPlate , BikeColor bikeColorObject){
+      this.bikeModel=bikeModel;
+      this.noPlate=noPlate;
+      this.bikeColorObj=bikeColorObject;
+     
+   
+   }
+   
+     public Bike(String bikeModel , String noPlate , String bikeColor){
+      this.bikeModel=bikeModel;
+      this.noPlate=noPlate;
+      this.bikeColor=bikeColor;
+   }
+   
      public String getBikeModel() {
       return bikeModel;
    }
+
+
 
    public String getNoPlate() {
       return noPlate;
@@ -13,11 +31,6 @@ public class Bike {
      private boolean isBikeStarted;
      private int speed=0;
 
-     public Bike(String bikeModel , String noPlate , String bikeColor){
-        this.bikeModel=bikeModel;
-        this.noPlate=noPlate;
-        this.bikeColor=bikeColor;
-     }
 
      public  void setBikeColor(String bcolor){
       if( bcolor.equals("RED") || bcolor.equals("WHITE")){
@@ -61,7 +74,10 @@ public class Bike {
       System.out.println("speed of bike = " + this.speed);
    }
    public void showBikeDetail(){
-      System.out.println("bike model = " + this.bikeModel + "bike color = " + this.bikeColor + "bike number = " + this.noPlate);
+      System.out.println("bike model = " + this.bikeModel + ", bike color = " + this.bikeColor + ", bike number = " + this.noPlate);
    }
 
+   public void showBikeDetailObj(){
+      System.out.println("bike model = " + this.bikeModel + ", bike color = " + this.bikeColorObj.getColor() + ", bike number = " + this.noPlate);
+   }
 }
