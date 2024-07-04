@@ -28,8 +28,8 @@ public class MyMain {
         //String bikeColor = honda13.getBikeColor();
         //String bikeNo = honda.getNoPlate();
 
-        //police.challan(bikeColor, bikeNo);
-        //System.out.println("My Bike color is "+ bikeColor);
+        police.challan(bikeColor, bikeNo);
+        System.out.println("My Bike color is "+ bikeColor);
 
 
     }
