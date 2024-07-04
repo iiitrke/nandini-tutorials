@@ -27,7 +27,5 @@ public class MyMain {
 
         police.challan(bikeColor, bikeNo);
         System.out.println("My Bike color is "+ bikeColor);
-
-
     }
 }
