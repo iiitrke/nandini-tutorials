@@ -1,6 +1,6 @@
 
 
-public class LivingThing {
+public class LivingThing extends Object {
 
     public LivingThing(){ // Default Constructor
         
