@@ -1,2 +1,2 @@
 # Index 
-[Java tutorial] (./java/index.md) 
+[Java tutorial](./java/index.md) 
