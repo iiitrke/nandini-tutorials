@@ -40,8 +40,9 @@ public class Operators {
         System.out.println("+++++++++++++");
 
         int x = 5;
-
-        System.out.println(x++); // print 5 then increment x=6
+        int y=0;
+        y=x--;
+        System.out.println(y); // print 5 then increment x=6
         System.out.println(x); // print 6
         System.out.println(++x); // increment first 7, then print 7
         System.out.println(x);
