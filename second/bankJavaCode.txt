@@ -1,0 +1,127 @@
+BankAcc
+public class BankAccount {
+    private String accountNumber;
+    private String accountHolderName;
+    protected double balance;
+
+    public BankAccount(String accountNumber, String accountHolderName, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = initialBalance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        } else {
+            System.out.println("Deposit amount must be positive.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Invalid withdraw amount or insufficient funds.");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void transfer(BankAccount targetAccount, double amount) {
+        if (amount > 0 && amount <= balance) {
+            this.withdraw(amount);
+            targetAccount.deposit(amount);
+        } else {
+            System.out.println("Invalid transfer amount or insufficient funds.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Account Number: " + accountNumber + ", Account Holder: " + accountHolderName + ", Balance: $" + balance;
+    }
+}
+
+interface 
+
+public interface InterestBearing {
+    void applyInterest();
+}
+
+
+savingsAccount
+
+public class SavingsAccount extends BankAccount implements InterestBearing {
+    private static final double INTEREST_RATE = 0.03; // 3% interest rate
+
+    public SavingsAccount(String accountNumber, String accountHolderName, double initialBalance) {
+        super(accountNumber, accountHolderName, initialBalance);
+    }
+
+    @Override
+    public void applyInterest() {
+        balance += balance * INTEREST_RATE;
+    }
+
+    @Override
+    public String toString() {
+        return "Savings " + super.toString();
+    }
+}
+
+
+checkingaccount
+
+public class CheckingAccount extends BankAccount {
+    private static final double OVERDRAFT_LIMIT = 500;
+
+    public CheckingAccount(String accountNumber, String accountHolderName, double initialBalance) {
+        super(accountNumber, accountHolderName, initialBalance);
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance + OVERDRAFT_LIMIT) {
+            balance -= amount;
+        } else {
+            System.out.println("Invalid withdraw amount or exceeds overdraft limit.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Checking " + super.toString();
+    }
+}
+
+
+main 
+public class BankApplication {
+    public static void main(String[] args) {
+        BankAccount[] accounts = new BankAccount[3];
+        
+        accounts[0] = new SavingsAccount("123456", "John Doe", 1000);
+        accounts[1] = new CheckingAccount("654321", "Jane Smith", 500);
+        accounts[2] = new SavingsAccount("789012", "Emily Davis", 2000);
+
+        System.out.println("Initial Balances:");
+        for (BankAccount account : accounts) {
+            System.out.println(account);
+        }
+
+        // Perform some transactions
+        accounts[0].deposit(200);
+        accounts[1].withdraw(100);
+        accounts[0].transfer(accounts[1], 300);
+        ((InterestBearing) accounts[0]).applyInterest();
+        ((SavingsAccount) accounts[2]).applyInterest();
+
+        System.out.println("\nFinal Balances:");
+        for (BankAccount account : accounts) {
+            System.out.println(account);
+        }
+    }
+}
