@@ -1,21 +1,23 @@
 package objects;
 
 public class Rectangle {
-    private int height;
-    private int width;
+    private Integer height;
+    private Integer width;
     private Point origin;
 
-    public Rectangle(int height, int width) {
+    public Rectangle(Integer height, Integer width) {
 
         this.height = height;
         this.width = width;
         this.origin = new Point();
+
     }
 
     public Rectangle(Point origin, int height, int width) {
         this.origin = origin;
         this.height = height;
         this.width = width;
+        
     }
 
     public int getArea() {

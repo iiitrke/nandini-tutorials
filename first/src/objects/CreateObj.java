@@ -4,15 +4,27 @@ public class CreateObj {
 
    public static void main(String[] args) {
 
-      Point p = new Point(21, 56);
-      Rectangle r1 = new Rectangle(p, 45, 56);
-      Rectangle r2 = new Rectangle(78, 12);
+      Point p = new Point(21, 56); /// AUTOBOXING - BOXING , UNBOXING
 
-      System.out.println(r1.getArea());
+      
+    
+      Rectangle r1 = new Rectangle(new Point(22,22), 45, 56); 
+      Rectangle r2 = new Rectangle(78, 100);
+ 
+   Integer r1Area = r1.getArea();
+   
+      System.out.println(r1Area);
+      System.out.println(r1Area);
+
       System.out.println(r1.getWidth());
       System.out.println(r1.getHeight());
       Point pr1 = r1.getOrigin();
       System.out.println(pr1.x + " " + pr1.y);
+
+      r1=null;
+      System.out.println(pr1.getX() + " " + pr1.getY());
+      System.out.println(r1.getArea());
+
 
       System.out.println(r2.getArea());
       System.out.println(r2.getWidth());
